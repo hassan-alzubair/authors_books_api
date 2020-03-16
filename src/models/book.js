@@ -10,6 +10,11 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: 'updated_at',
         createdAt: 'created_at',
     });
+    book.prototype.toJSON = function () {
+        let values = this.get();
+        delete values.authorId
+        return values;
+    };
     book.associate = function (models) {
         book.belongsTo(models.author);
     };
