@@ -1,4 +1,4 @@
-const models = require('../models/index');
+const models = require('../models/models');
 const Book = models.book;
 
 module.exports.listAll = async () => {

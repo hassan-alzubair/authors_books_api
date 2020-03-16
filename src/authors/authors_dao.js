@@ -1,4 +1,4 @@
-const models = require('../models/index');
+const models = require('../models/models');
 const Author = models.author;
 
 module.exports.getAll = async () => {
