@@ -7,20 +7,11 @@ module.exports.getAll = async () => {
             { model: models.book, as: 'books' }
         ]
     };
-    try {
-        return await Author.findAll(options);
-    } catch (error) {
-        throw error
-    }
+    return Author.findAll(options);
 };
 
 module.exports.create = async (author) => {
-    try {
-        return  await Author.create(author);
-    } catch (error) {
-        console.log(error)
-        throw error
-    }
+    return Author.create(author);
 };
 
 module.exports.delete = async (authorId) => {
@@ -29,11 +20,8 @@ module.exports.delete = async (authorId) => {
             id: authorId
         }
     };
-    try {
-        await Author.destroy(options);
-    } catch (err) {
-        throw err
-    }
+    Author.destroy(options);
+    return
 };
 
 module.exports.update = async (authorId, author) => {
@@ -42,11 +30,8 @@ module.exports.update = async (authorId, author) => {
             id: authorId
         }
     };
-    try {
-        await Author.update(author, options)
-    } catch (error) {
-        throw error
-    }
+    Author.update(author, options)
+    return
 };
 
 module.exports.findById = async (authorId) => {
@@ -55,9 +40,5 @@ module.exports.findById = async (authorId) => {
             id: authorId
         }
     };
-    try {
-        return await Author.findOne(options)
-    } catch (error) {
-        throw error
-    }
+    return Author.findOne(options)
 };

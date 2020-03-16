@@ -4,22 +4,14 @@ const Book = models.book;
 module.exports.listAll = async () => {
     let options = {
         include: [
-            {model: models.author, as: 'author'}
+            { model: models.author, as: 'author' }
         ]
     };
-    try {
-        return await Book.findAll(options)
-    } catch (error) {
-        throw error;
-    }
+    return Book.findAll(options)
 };
 
 module.exports.create = async (book) => {
-    try {
-        return await Book.create(book);
-    } catch (error) {
-        throw error
-    }
+    return Book.create(book);
 };
 
 module.exports.findById = async (bookId) => {
@@ -28,11 +20,7 @@ module.exports.findById = async (bookId) => {
             id: bookId
         }
     };
-    try {
-        return await Book.findOne(options);
-    } catch (error) {
-        throw error
-    }
+    return Book.findOne(options);
 };
 
 module.exports.update = async (bookId, book) => {
@@ -41,11 +29,7 @@ module.exports.update = async (bookId, book) => {
             id: bookId
         }
     };
-    try {
-        await Book.update(book, options);
-    } catch (error) {
-        throw error
-    }
+    Book.update(book, options);
 };
 
 module.exports.delete = async (bookId) => {
@@ -54,9 +38,5 @@ module.exports.delete = async (bookId) => {
             id: bookId
         }
     };
-    try {
-        await Book.destroy(options);
-    } catch (error) {
-        throw error
-    }
+    Book.destroy(options);
 };

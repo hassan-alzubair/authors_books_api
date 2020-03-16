@@ -5,6 +5,7 @@ module.exports.allBooks = async (req, res) => {
         let result = await booksService.allBooks();
         res.status(200).json(result);
     } catch (error) {
+        console.log(error.message)
         res.status(error.code || 500).send({
             error: error.message
         });
@@ -17,6 +18,7 @@ module.exports.createBook = async (req, res) => {
         let result = await booksService.createBook(book);
         res.status(201).json(result);
     } catch (error) {
+        console.log(error.message)
         res.status(error.code || 500).send({
             error: error.message
         });
@@ -31,6 +33,7 @@ module.exports.updateBook = async (req, res) => {
             res.status(200).send();
         })
         .catch(err => {
+            console.log(err.message)
             res.status(err.code || 500).send({
                 error: err.message
             });
@@ -44,6 +47,7 @@ module.exports.deleteBook = async (req, res) => {
             res.status(200).send();
         })
         .catch(err => {
+            console.log(err.message)
             res.status(err.code || 500).send({
                 error: err.message
             });

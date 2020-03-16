@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
 const booksRoutes = require('./books/books_routes');
-const authersRoutes = require('./authers/authors_routes');
+const authersRoutes = require('./authors/authors_routes');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
